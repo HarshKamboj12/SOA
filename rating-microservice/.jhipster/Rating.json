@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "score",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "1",
+            "fieldValidateRulesMax": "10"
+        },
+        {
+            "fieldName": "bookId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20171214171345",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "rating",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager",
+    "microserviceName": "ratingmicroservice",
+    "searchEngine": false
+}

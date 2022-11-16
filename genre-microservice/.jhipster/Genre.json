@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171214171132",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "genre",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager",
+    "microserviceName": "genremicroservice",
+    "searchEngine": false
+}

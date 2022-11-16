@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "picture",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "bookId",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20171214170924",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "bookpicture",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager",
+    "microserviceName": "bookpicturemicroservice",
+    "searchEngine": false
+}

@@ -1,0 +1,134 @@
+version: '2'
+services:
+    authormicroservice-app:
+        image: authormicroservice
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:admin@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://authormicroservice-mysql:3306/authormicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    authormicroservice-mysql:
+        image: mysql:5.7.20
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=authormicroservice
+        command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+            --explicit_defaults_for_timestamp
+    
+    bookapigateway-app:
+        image: bookapigateway
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:admin@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://bookapigateway-mysql:3306/bookapigateway?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+        ports:
+            - 8080:8080
+    bookapigateway-mysql:
+        image: mysql:5.7.20
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=bookapigateway
+        command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+            --explicit_defaults_for_timestamp
+    
+    bookmicroservice-app:
+        image: bookmicroservice
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:admin@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://bookmicroservice-mysql:3306/bookmicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    bookmicroservice-mysql:
+        image: mysql:5.7.20
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=bookmicroservice
+        command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+            --explicit_defaults_for_timestamp
+    
+#    bookpicturemicroservice-app:
+ #       image: bookpicturemicroservice
+  #      environment:
+   #         - SPRING_PROFILES_ACTIVE=prod,swagger
+    #        - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+     #       - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+      #      - SPRING_DATASOURCE_URL=jdbc:mysql://bookpicturemicroservice-mysql:3306/bookpicturemicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+       #     - JHIPSTER_SLEEP=30
+        #    - JHIPSTER_REGISTRY_PASSWORD=admin
+#    bookpicturemicroservice-mysql:
+ #       image: mysql:5.7.20
+  #      environment:
+   #         - MYSQL_USER=root
+    #        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+     #       - MYSQL_DATABASE=bookpicturemicroservice
+      #  command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+       #     --explicit_defaults_for_timestamp
+    
+    genremicroservice-app:
+        image: genremicroservice
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://genremicroservice-mysql:3306/genremicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    genremicroservice-mysql:
+        image: mysql:5.7.20
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=genremicroservice
+        command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+           --explicit_defaults_for_timestamp
+    
+    ratingmicroservice-app:
+        image: ratingmicroservice
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+            - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://ratingmicroservice-mysql:3306/ratingmicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    ratingmicroservice-mysql:
+        image: mysql:5.7.20
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=ratingmicroservice
+        command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+            --explicit_defaults_for_timestamp
+    
+#    userpreferencesmicroservice-app:
+ #       image: userpreferencesmicroservice
+  #      environment:
+   #         - SPRING_PROFILES_ACTIVE=prod,swagger
+    ##        - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+      #      - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+       #     - SPRING_DATASOURCE_URL=jdbc:mysql://userpreferencesmicroservice-mysql:3306/userpreferencesmicroservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+        #    - JHIPSTER_SLEEP=30
+         #   - JHIPSTER_REGISTRY_PASSWORD=admin
+#    userpreferencesmicroservice-mysql:
+ #       image: mysql:5.7.20
+  #      environment:
+   #         - MYSQL_USER=root
+    #        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+     #       - MYSQL_DATABASE=userpreferencesmicroservice
+      #  command:             mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8
+       #     --explicit_defaults_for_timestamp
+    
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry

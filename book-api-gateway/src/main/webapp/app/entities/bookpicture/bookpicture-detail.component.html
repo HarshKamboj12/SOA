@@ -1,0 +1,35 @@
+
+<div *ngIf="bookpicture">
+    <h2><span>Bookpicture</span> {{bookpicture.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Picture</span></dt>
+        <dd>
+            <div *ngIf="bookpicture.picture">
+                <a (click)="openFile(bookpicture.pictureContentType, bookpicture.picture)">
+                    <img [src]="'data:' + bookpicture.pictureContentType + ';base64,' + bookpicture.picture" style="max-width: 100%;" alt="bookpicture image"/>
+                </a>
+                {{bookpicture.pictureContentType}}, {{byteSize(bookpicture.picture)}}
+            </div>
+        </dd>
+        <dt><span>Book Id</span></dt>
+        <dd>
+            <span>{{bookpicture.bookId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'bookpicture/'+ bookpicture.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
